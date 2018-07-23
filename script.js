@@ -35,7 +35,7 @@ function parseJSON(json) {
 function findCategory(rusNames,engNames,ids) {
   var searchValue = document.getElementById("search-field").value;
   var rusNamesFinal = [];
-  var englishNamesFinal = [];
+  var engNamesFinal = [];
   var idsFinal = [];
 
   for (var i = 0; i < rusNames.length; i++) {
@@ -45,7 +45,7 @@ function findCategory(rusNames,engNames,ids) {
     }
   }
 
-  showCategory(rusNamesFinal,englishNamesFinal,idsFinal)
+  showCategory(rusNamesFinal,engNamesFinal,idsFinal)
 }
 
 function showCategory(rusNamesFinal,engNamesFinal,idsFinal) {
