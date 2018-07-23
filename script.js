@@ -37,26 +37,45 @@ function findCategory(rusNames,engNames,ids) {
   var rusNamesFinal = [];
   var engNamesFinal = [];
   var idsFinal = [];
+  var check = checkLanguage(searchValue);
 
-  for (var i = 0; i < rusNames.length; i++) {
-    if(engNames[i].indexOf(searchValue.toUpperCase()) > -1) {
-      engNamesFinal.push(engNames[i]);
-      idsFinal.push(ids[i])
+  if(check) {
+    for (var i = 0; i < rusNames.length; i++) {
+      if(rusNames[i].indexOf(searchValue.toUpperCase()) > -1) {
+        rusNamesFinal.push(rusNames[i]);
+        idsFinal.push(ids[i])
+      }
     }
+    showCategory(rusNamesFinal,idsFinal)
   }
-
-  showCategory(rusNamesFinal,engNamesFinal,idsFinal)
+  else {
+    for (var i = 0; i < engNames.length; i++) {
+      if(engNames[i].indexOf(searchValue.toUpperCase()) > -1) {
+        engNamesFinal.push(engNames[i]);
+        idsFinal.push(ids[i])
+      }
+    }
+    showCategory(engNamesFinal,idsFinal)
+  }
 }
 
-function showCategory(rusNamesFinal,engNamesFinal,idsFinal) {
+function checkLanguage(text) {
+  var regexp = /^[а-яё]+$/i;
+    if(text.match(regexp)) {
+        return true;
+    }
+}
+
+
+function showCategory(names,idsFinal) {
   var row, cell, text;
   var table = document.getElementById("result-table");
 
-  for (var i = 0; i < engNamesFinal.length; i++) {
+  for (var i = 0; i < names.length; i++) {
     row = table.insertRow(1);
     cell1 = row.insertCell(0);
     cell2 = row.insertCell(1);
-    text1 = document.createTextNode(engNamesFinal[i]);
+    text1 = document.createTextNode(names[i]);
     text2 = document.createTextNode(idsFinal[i]);
     cell1.appendChild(text1);
     cell2.appendChild(text2);
