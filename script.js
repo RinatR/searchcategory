@@ -1,17 +1,19 @@
+var json;
+
 function getCategoryList() {
 
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'datacategory.json', true);
+  xhr.open('GET', 'datacategory.json', false);
   xhr.send();
   if (xhr.status != 200) {
     alert( xhr.status + ': ' + xhr.statusText );
   }
   else {
-    searchCategory(xhr.responseText);
+    json = xhr.responseText;
   }
 }
 
-function searchCategory(json) {
+function searchCategory() {
 
   var data = JSON.parse(json);
   var rusNames = [];
