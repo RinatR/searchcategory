@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+* {
+  box-sizing: border-box;
+}
+
+
+
+#result-table {
+  border-collapse: collapse;
+  width: 700px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  font-size: 18px;
+
+}
+
+
+
+#result-table th, #result-table td {
+  text-align: center;
+  padding: 12px;
+}
+
+#result-table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#result-table tr.header, #result-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.search-form {
+	width: 700px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+#search-field {
+	width:  350px;
+	padding:  10px;
+}
+
+.btn {
+	padding:  10px;
+}
+
+</style>
+</head>
+<body>
+
+	<form action="" class="search-form">
+		<input type="text" id="search-field" placeholder="Введите название категории">
+		<input class="btn" type="button" onclick="search()" value="Найти">
+		<input class="btn" type="reset" name="reset" placeholder="" value="Сбросить">
+	</form>
+	<table id="result-table">
+		<tr class="header">
+    		<th style="width:50%;">Категория</th>
+    		<th style="width:50%;">ID</th>
+  		</tr>
+	</table>
+
+	<script src="script.js"></script>
+
+</body>
+</html>
+
